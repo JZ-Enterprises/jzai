@@ -9,6 +9,7 @@ setup(
     author="Zack",
     author_email='zjacka01@sfx.act.edu.au',
     packages=find_packages(),
+    url='https://github.com/JZ-Enterprises/jzai/',
     install_requires=[
         'nltk',
         'textblob',
