@@ -16,7 +16,7 @@ nltk.download("stopwords", quiet=True)
 nltk.download("punkt", quiet=True)
 
 def check_for_updates():
-    current_version = "59.83.95"
+    current_version = "59.83.96"
     version_parts = list(map(int, current_version.split(".")))
 
     def version_to_str(parts):
