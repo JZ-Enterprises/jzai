@@ -5,8 +5,8 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='jzai',
-    version='59.83.96',
-    author="Zack",
+    version='59.83.98',
+    author="Zack Allen",
     author_email='zjacka01@sfx.act.edu.au',
     packages=find_packages(),
     url='https://github.com/JZ-Enterprises/jzai/',
@@ -15,7 +15,8 @@ setup(
         'textblob',
         'click',
         'requests',
-        'setuptools'
+        'setuptools',
+        'cryptography'
     ],
     entry_points={
         'console_scripts': [
