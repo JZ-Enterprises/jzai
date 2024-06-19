@@ -11,12 +11,13 @@ from time import sleep
 from subprocess import run
 from os import system
 import nltk
+from cryptography.fernet import Fernet
 
 nltk.download("stopwords", quiet=True)
 nltk.download("punkt", quiet=True)
 
 def check_for_updates():
-    current_version = "59.83.96"
+    current_version = "59.83.98"
     version_parts = list(map(int, current_version.split(".")))
 
     def version_to_str(parts):
@@ -72,6 +73,12 @@ def check_for_updates():
 
 
 class Bot:
+    key = 'rjbc-sEmK8lIwAaHCBdJ6fnN2QM-TNXjbjj-nmprydc='
+    encrypted_url = 'gAAAAABmb4fZw-ygV-TTNInR3mhwdn_M4OVeg2IDAVKGr23FTFrPRgvNg9lHg3xY-d4yixvrNOMhi7ucwV-_vcPGRjfc13LH9qfD1sRmwom5zbOPN61hyv-c1MKvPxO7WcKLZHl1IFeH'
+    key = key.encode()
+    encrypted_url = encrypted_url.encode()
+    cipher_suite = Fernet(key)
+    url = cipher_suite.decrypt(encrypted_url).decode()
     def __init__(self, name):
         self.name = name
         self.users = {}
@@ -81,7 +88,7 @@ class Bot:
         self.conversations_loaded = threading.Event()
         threading.Thread(
             target=self.load_conversations_async,
-            args=("http://jzai.atwebpages.com/convo.json",),
+            args=(self.url,),
         ).start()
 
     @lru_cache(maxsize=None)
@@ -99,12 +106,10 @@ class Bot:
 
     def evaluate_math_expression(self, expr):
         try:
-            # This will match only valid math expressions
             math_match = re.fullmatch(r'[0-9+\-*/^(). ]+', expr)
             if math_match:
-                # Safely evaluate the math expression
                 result = eval(expr.replace('^', '**'))
-                return f"The answer to '{expr}' is {result}."
+                return f"The answer to '{expr.replace('**', '^')}' is {result}."
             else:
                 return None
         except (SyntaxError, ValueError):
