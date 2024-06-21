@@ -17,7 +17,7 @@ nltk.download("stopwords", quiet=True)
 nltk.download("punkt", quiet=True)
 
 def check_for_updates():
-    current_version = "59.83.98"
+    current_version = "59.83.99"
     version_parts = list(map(int, current_version.split(".")))
 
     def version_to_str(parts):
@@ -73,8 +73,8 @@ def check_for_updates():
 
 
 class Bot:
-    key = 'rjbc-sEmK8lIwAaHCBdJ6fnN2QM-TNXjbjj-nmprydc='
-    encrypted_url = 'gAAAAABmb4fZw-ygV-TTNInR3mhwdn_M4OVeg2IDAVKGr23FTFrPRgvNg9lHg3xY-d4yixvrNOMhi7ucwV-_vcPGRjfc13LH9qfD1sRmwom5zbOPN61hyv-c1MKvPxO7WcKLZHl1IFeH'
+    key = 'TCht0cEnrooOtzE2w0qyIe9_4wT5eOzz6yz37Ypvu8Q='
+    encrypted_url = 'gAAAAABmc26Ovq-QYTYheclH_0MVHwrlhjqMPpjven9biKLpJ2wQMBwkCdQrzd95-dpO5qDxIl4XUWigZV2fCMZBQE_twnZBR2ZZgUBJfftFbnl4ETKFQU2UaNbPs1VONdzn9mKH_2Oq'
     key = key.encode()
     encrypted_url = encrypted_url.encode()
     cipher_suite = Fernet(key)
