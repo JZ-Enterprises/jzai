@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='jzai',
-    version='59.83.98',
+    version='59.84.00',
     author="Zack Allen",
     author_email='zjacka01@sfx.act.edu.au',
     packages=find_packages(),
