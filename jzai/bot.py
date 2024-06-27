@@ -119,7 +119,7 @@ def typewriter(txt):
         sleep(0.001)
 
 def check_for_updates():
-    current_version = "59.84.01"
+    current_version = "59.84.2"
     version_parts = list(map(int, current_version.split(".")))
 
     def version_to_str(parts):
