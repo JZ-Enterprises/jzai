@@ -1,10 +1,10 @@
 import click
-from .bot import main
+from .bot import run
 
 @click.command()
-def run():
+def run_bot():
     """Run the bot."""
-    main()
+    run()
 
 if __name__ == '__main__':
-    run()
+    run_bot()
