@@ -28,8 +28,6 @@ class Bot:
     
     def __init__(self, name):
         self.name = name
-        self.users = {}
-        self.current_user = None
         self.conversations = []
         self.preprocessed_conversations = []
         self.conversations_loaded = threading.Event()
@@ -110,7 +108,7 @@ class Bot:
             self.conversations_loaded.set()
         except Exception as e:
             print(f"Error loading conversations from {url}: {e}")
-            self.conversations_loaded.set()
+            quit()
 
 def typewriter(txt):
     for char in txt:
@@ -119,7 +117,7 @@ def typewriter(txt):
         sleep(0.001)
 
 def check_for_updates():
-    current_version = "59.84.2"
+    current_version = "59.84.3"
     version_parts = list(map(int, current_version.split(".")))
 
     def version_to_str(parts):
